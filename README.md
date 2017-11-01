@@ -8,5 +8,5 @@ Este proyecto tiene como objetivo usar buenas practicas con de acuerdo a php-fig
 El proyecto utiliza los siguientes componentes:
 
 1. Front controller
-1. Router (phproute  [https://packagist.org/](https://packagist.org/))
+1. Router (phproute  [https://packagist.org/packages/phroute/phroute](https://packagist.org/packages/phroute/phroute))
 2. Apache redirect
