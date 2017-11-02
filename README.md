@@ -93,3 +93,18 @@ https://twig.symfony.com/
 
 
 
+
+```bash
+var/www/html/projects/blogMyPhp$ php composer.phar require "twig/twig:^2.0"
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 2 installs, 0 updates, 0 removals
+  - Installing symfony/polyfill-mbstring (v1.6.0): Downloading (100%)         
+  - Installing twig/twig (v2.4.4): Downloading (100%)         
+Writing lock file
+Generating autoload files
+
+```
+
+
