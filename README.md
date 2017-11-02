@@ -63,3 +63,11 @@ cmponser.json
 ```
 
 
+
+```bash
+
+php composer.phar dump-autoload
+ó
+php composer.phar dump-autoload -o (este fue el que me funcionó)
+```
+
