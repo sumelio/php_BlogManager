@@ -62,7 +62,23 @@ cmponser.json
 
 ```
 
+Configuración para habilitar archivo .htaccess en apache
+https://www.digitalocean.com/community/tutorials/how-to-rewrite-urls-with-mod_rewrite-for-apache-on-ubuntu-16-04
 
+Editar archivo 
+```bash
+sudo nano /etc/apache2/apache2.conf 
+```
+
+Reiniciar apache:
+
+```bash
+sudo /etc/init.d/apache2 restart
+```
+
+
+
+Actualizar composer
 
 ```bash
 
