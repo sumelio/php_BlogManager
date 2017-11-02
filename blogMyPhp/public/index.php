@@ -5,8 +5,7 @@ error_reporting(E_ALL);
 
 require_once '../vendor/autoload.php';
 
-//Clases de phproute
-include_once  '../config.php';
+ 
 
 $baseUrl = '';
 
@@ -17,18 +16,36 @@ $baseUrl = 'http://' . $_SERVER['HTTP_HOST'].$baseDir;
 
 define('BASE_URL', $baseUrl);
 
-
-function render($fileName, $params = [] ){
-  // Ommtir cualquier salida
-  ob_start();
-  //toma arreglo asociativo, indices son cadenas la vuelve cadenas
-  extract($params);
-  include $fileName;
-  return ob_get_clean();
-
-
-}
+ 
 $route = $_GET['route'] ?? '/';
+
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$dbHost ="localhost";
+$dbName ="blogDataBase";
+$dbuser ="userBLog";
+$dbpass ="userBLog-2017";
+
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'blogDataBase',
+    'username'  => 'userBLog',
+    'password'  => 'userBLog-2017',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+$capsule->setAsGlobal();
+
+$capsule->bootEloquent();
+
+
 
 use Phroute\Phroute\RouteCollector;
 
@@ -61,29 +78,7 @@ $response = $dispatcher->dispatch(trim($_SERVER[trim('REQUEST_METHOD')]), trim($
 
 
 echo $response;
-/*
-$response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $router));
 
 
-// Print out the value returned from the dispatched function
-
-
-
-
-*/
-
-/*$router->post($route, $handler);   # match only post requests
-$router->delete($route, $handler); # match only delete requests
-$router->any($route, $handler);    # match any request method
-*/
-/*    $route = $_GET['route'] ?? '/';*/
-
-/*switch($route){
-   case '/': require '../index.php'; break;
-   case '/admin': require '../admin/index.php'; break;
-   case '/admin/posts': require '../admin/posts.php'; break;
-
-}
-*/
 
 
